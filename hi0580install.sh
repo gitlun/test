@@ -44,8 +44,10 @@ apt -y install netdata --no-install-recommends
 echo -e "######done######\n"
 
 echo "######reconfig locales######"
-sed 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-sed 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen
+#sed 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+#locale-gen
+#sed 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen
+echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 echo -e "######done######\n"
