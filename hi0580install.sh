@@ -14,31 +14,6 @@ export DEBIAN_FRONTEND=noninteractive
 apt -y full-upgrade
 echo -e "######done######\n"
 
-echo "######Install font######"
-apt -y install fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy
-echo -e "######done######\n"
-
-echo "######Install fcitx######"
-apt -y install fcitx fcitx-sunpinyin
-echo -e "######done######\n"
-
-echo "######Install sudo######"
-apt -y install sudo
-echo -e "######done######\n"
-
-echo "######Install xfce4######"
-apt -y install xfce4 xfce4-goodies lightdm-gtk-greeter-settings
-systemctl set-default multi-user.target
-echo -e "######done######\n"
-
-echo "######Install extr######"
-apt -y install firefox-esr docker-ce openjdk-8-jre-headless
-echo -e "######done######\n"
-
-echo "######Install netdata######"
-apt -y install netdata --no-install-recommends
-echo -e "######done######\n"
-
 echo "######reconfig locales######"
 #sed 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 #locale-gen
@@ -49,6 +24,37 @@ update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 echo -e "######done######\n"
 
 echo -e "----------------SETPROJECT--------------------------\n"
+echo "######Install sudo######"
+apt -y install sudo
+echo -e "######done######\n"
+
+echo "######Install xfce4######"
+apt -y install xfce4 xfce4-goodies lightdm-gtk-greeter-settings
+systemctl set-default multi-user.target
+echo -e "######done######\n"
+
+echo "######Install font######"
+apt -y install fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy
+echo -e "######done######\n"
+
+echo "######Install fcitx######"
+apt -y install fcitx fcitx-sunpinyin
+echo -e "######done######\n"
+
+echo "######Install extr######"
+apt -y install firefox-esr openjdk-8-jre-headless
+echo -e "######done######\n"
+
+echo "######Install netdata######"
+apt -y install netdata --no-install-recommends
+echo -e "######done######\n"
+
+echo "######Install docker######"
+apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+apt update
+apt -y install docker-ce docker-ce-cli containerd.io
 
 echo -e "----------------CLEAN--------------------------\n"
 echo "######Clean######"
