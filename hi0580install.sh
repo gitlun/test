@@ -7,7 +7,7 @@ set -x
 echo -e "----------------SETBASE--------------------------\n"
 
 echo "######Update Debian######"
-wget -O /tmp/apt.source http://m.mai0580.com/client/theme/sg/cn/mob/extr/apt.source
+wget -O /tmp/apt.source https://raw.githubusercontent.com/gitlun/test/master/apt.source
 cp -f /tmp/apt.source /etc/apt/sources.list
 apt update
 export DEBIAN_FRONTEND=noninteractive
