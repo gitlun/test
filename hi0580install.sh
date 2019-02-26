@@ -14,10 +14,6 @@ export DEBIAN_FRONTEND=noninteractive
 apt -y full-upgrade
 echo -e "######done######\n"
 
-echo "######Install openssh-server######"
-apt -y install openssh-server
-echo -e "######done######\n"
-
 echo "######Install font######"
 apt -y install fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy
 echo -e "######done######\n"
