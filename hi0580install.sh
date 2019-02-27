@@ -6,7 +6,6 @@ else
 	echo "Please switch to 'root'"
 	exit
 fi
-echo "test"
 LOG_FILE="/tmp/hi0580.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
