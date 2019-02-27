@@ -3,7 +3,7 @@
 if [ `whoami` = "root" ];then
 	echo "Start"
 else
-	echo "you are not root"
+	echo "Please switch to 'root'"
 	exit
 fi
 echo "test"
