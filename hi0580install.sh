@@ -28,6 +28,13 @@ echo "######Install sudo######"
 apt -y install sudo
 echo -e "######done######\n"
 
+echo "######Install docker######"
+apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+apt update
+apt -y install docker-ce docker-ce-cli containerd.io
+
 echo "######Install xfce4######"
 apt -y install xfce4 xfce4-goodies lightdm-gtk-greeter-settings
 systemctl set-default multi-user.target
@@ -48,13 +55,6 @@ echo -e "######done######\n"
 echo "######Install netdata######"
 apt -y install netdata --no-install-recommends
 echo -e "######done######\n"
-
-echo "######Install docker######"
-apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-apt update
-apt -y install docker-ce docker-ce-cli containerd.io
 
 echo -e "----------------CLEAN--------------------------\n"
 echo "######Clean######"
