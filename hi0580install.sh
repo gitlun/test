@@ -28,12 +28,21 @@ echo "######Install sudo######"
 apt -y install sudo
 echo -e "######done######\n"
 
-echo "######Install docker######"
-apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+echo "######Install nginx docker######"
+apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common lsb-release
+echo "deb http://nginx.org/packages/mainline/debian stretch nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
 apt update
-apt -y install docker-ce docker-ce-cli containerd.io
+apt -y install nginx docker-ce docker-ce-cli containerd.io
+
+#setup nginx conf
+wget -O /etc/nginx/conf.d/hi0580.conf https://raw.githubusercontent.com/gitlun/test/master/hi0580.conf
+
+echo -e "######done######\n"
 
 echo "######Install xfce4######"
 apt -y install xfce4 xfce4-goodies lightdm-gtk-greeter-settings
@@ -63,6 +72,28 @@ apt autoclean
 echo -e "######done######\n"
 
 
+echo -e "----------------set hi0580--------------------------\n"
+echo "###### mkdir #########"
+mkdir /var/www/hi0580
+chown www-data /var/www/hi0580
+mkdir /var/www/phpconf
+wget -O /var/www/phpconf/php.ini https://raw.githubusercontent.com/gitlun/test/master/php.ini
+mkdir /var/www/phpconf/conf.d
+wget -O /tmp/docker-php-ext-ini.zip https://raw.githubusercontent.com/gitlun/test/master/docker-php-ext-ini.zip
+unzip -o -d /var/www/phpconf/conf.d /tmp/docker-php-ext-ini.zip
+mkdir /var/www/phpconf/php-5.4.x
+wget -O /tmp/ZendGuardLoader.zip https://raw.githubusercontent.com/gitlun/test/master/ZendGuardLoader.zip
+unzip -o -d /var/www/phpconf/php-5.4.x /tmp/ZendGuardLoader.zip
+echo "######pull mysql######"
+docker pull mysql:5.7
+mkdir /var/www/mysql
+mkdir /var/www/mysqlbak
+# ftp weixinsql.zip to this dir
+echo -e "######done######\n"
+
+#docker run -p 9760:9000 --name hi0580php -v /var/www/hi0580:/var/www/html -v /var/www/phpconf:/usr/local/etc/php -d hi0580php:1.0
+#docker run --name hi0580db -v /var/www/mysql:/var/lib/mysql -v /var/www/mysqlbak:/var/www/mysqlbak -e MYSQL_ROOT_PASSWORD=... -d mysql:5.7
+#
 #echo -e "----------------INSTALL EXTR--------------------------\n"
 #echo "######Dbeaver######"
 #wget -O /tmp/dbeaver.tar.a http://m.mai0580.com/client/theme/sg/cn/mob/extr/dbeaver.tar.a
@@ -75,3 +106,9 @@ echo -e "######done######\n"
 #echo -e "######done######\n"
 
 #scp apt.source lun@192.168.1.126:/tmp
+#ftp upload weixinsql.zip
+#ftp upload hi0580php.1.0.tar and load
+#ftp upload weixin.zip and release
+#ftp upload Dbeaver and install
+
+#ftp upload www.mai0580 & www.souboat
