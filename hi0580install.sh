@@ -1,6 +1,12 @@
 #!/bin/bash
 # hi0580 setup on debian
-su -
+if [ `whoami` = "root" ];then
+	echo "Start"
+else
+	echo "you are not root"
+	exit
+fi
+echo "test"
 LOG_FILE="/tmp/hi0580.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
