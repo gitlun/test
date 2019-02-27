@@ -36,8 +36,8 @@ echo -e "######done######\n"
 
 echo "######Install nginx docker######"
 apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common lsb-release
-echo "deb http://nginx.org/packages/mainline/debian stretch nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
-curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+#echo "deb http://nginx.org/packages/stable/debian stretch nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+#curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
 
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
@@ -80,20 +80,22 @@ echo -e "######done######\n"
 
 echo -e "----------------set hi0580--------------------------\n"
 echo "###### mkdir #########"
-mkdir /var/www/hi0580
-chown www-data /var/www/hi0580
-mkdir /var/www/phpconf
-wget -O /var/www/phpconf/php.ini https://raw.githubusercontent.com/gitlun/test/master/php.ini
-mkdir /var/www/phpconf/conf.d
-wget -O /tmp/docker-php-ext-ini.zip https://raw.githubusercontent.com/gitlun/test/master/docker-php-ext-ini.zip
-unzip -o -d /var/www/phpconf/conf.d /tmp/docker-php-ext-ini.zip
-mkdir /var/www/phpconf/php-5.4.x
-wget -O /tmp/ZendGuardLoader.zip https://raw.githubusercontent.com/gitlun/test/master/ZendGuardLoader.zip
-unzip -o -d /var/www/phpconf/php-5.4.x /tmp/ZendGuardLoader.zip
+#mkdir /var/www
+#mkdir /var/www/hi0580
+#chown www-data /var/www/hi0580
+#mkdir /var/www/phpconf
+#wget -O /var/www/phpconf/php.ini https://raw.githubusercontent.com/gitlun/test/master/php.ini
+#mkdir /var/www/phpconf/conf.d
+#wget -O /tmp/docker-php-ext-ini.zip https://raw.githubusercontent.com/gitlun/test/master/docker-php-ext-ini.zip
+#unzip -o -d /var/www/phpconf/conf.d /tmp/docker-php-ext-ini.zip
+#mkdir /var/www/phpconf/php-5.4.x
+#wget -O /tmp/ZendGuardLoader.zip https://raw.githubusercontent.com/gitlun/test/master/ZendGuardLoader.zip
+#unzip -o -d /var/www/phpconf/php-5.4.x /tmp/ZendGuardLoader.zip
 echo "######pull mysql######"
 docker pull mysql:5.7
-mkdir /var/www/mysql
-mkdir /var/www/mysqlbak
+#mkdir /var/www/
+#mkdir /var/www/mysql
+#mkdir /var/www/mysqlbak
 # ftp weixinsql.zip to this dir
 echo -e "######done######\n"
 
