@@ -1,5 +1,6 @@
 #!/bin/bash
 # hi0580 setup on debian
+su -
 LOG_FILE="/tmp/hi0580.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
