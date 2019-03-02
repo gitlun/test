@@ -39,8 +39,8 @@ apt -y install apt-transport-https ca-certificates curl gnupg2 software-properti
 #echo "deb http://nginx.org/packages/stable/debian stretch nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
 #curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+curl -fsSL https://mirrors.cloud.aliyuncs.com/linux/debian/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://mirrors.cloud.aliyuncs.com/linux/debian $(lsb_release -cs) stable"
 
 apt update
 apt -y install nginx docker-ce docker-ce-cli containerd.io
