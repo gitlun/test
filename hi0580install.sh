@@ -12,7 +12,7 @@ exec &> >(tee "$LOG_FILE")
 set -x
 echo -e "----------------SETBASE--------------------------\n"
 
-echo "######Rset to default######"
+echo "######Reset to default######"
 mv /etc/ssh/sshd_config /dska/tmp
 wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/test/master/sshd_config_default
 
