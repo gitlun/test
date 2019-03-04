@@ -6,11 +6,15 @@ else
 	echo "Please switch to 'root'"
 	exit
 fi
-LOG_FILE="/tmp/hi0580.log"
+LOG_FILE="/dska/tmp/hi0580.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
 set -x
 echo -e "----------------SETBASE--------------------------\n"
+
+echo "######Rset to default######"
+mv /etc/ssh/sshd_config /dska/tmp
+wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/test/master/sshd_config_default
 
 echo "######Update Debian######"
 wget -O /tmp/apt.source https://raw.githubusercontent.com/gitlun/test/master/apt.source
