@@ -72,7 +72,8 @@ apt -y install firefox-esr openjdk-8-jre-headless
 echo -e "######done######\n"
 
 echo "######Install netdata######"
-apt -y install netdata --no-install-recommends
+#apt -y install netdata --no-install-recommends
+apt -y install tigervnc-standalone-server
 echo -e "######done######\n"
 
 echo -e "----------------CLEAN--------------------------\n"
