@@ -6,6 +6,8 @@ else
 	echo "Please switch to 'root'"
 	exit
 fi
+mkdir /dska
+mkdir /dska/tmp
 LOG_FILE="/dska/tmp/hi0580.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
@@ -32,6 +34,8 @@ echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 echo -e "######done######\n"
+
+wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/test/master/sshd_config_new.txt
 
 echo -e "----------------SETPROJECT--------------------------\n"
 echo "######Install sudo######"
