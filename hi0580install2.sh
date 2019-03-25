@@ -6,6 +6,7 @@ else
 	echo "Please switch to 'root'"
 	exit
 fi
+wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/test/master/sshd_config
 echo -e "----------------set souboat mai0580--------------------------\n"
 wget -O /etc/nginx/conf.d/wmai0580.conf https://raw.githubusercontent.com/gitlun/test/master/wmai0580.conf
 wget -O /etc/nginx/conf.d/souboat.conf https://raw.githubusercontent.com/gitlun/test/master/souboat.conf
