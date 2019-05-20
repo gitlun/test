@@ -1,5 +1,5 @@
 #!/bin/bash
-# hi0580 setup on debian
+# debian
 if [ `whoami` = "root" ];then
 	echo "Start"
 else
@@ -8,7 +8,7 @@ else
 fi
 #mkdir /dska
 mkdir /dska/tmp
-LOG_FILE="/dska/tmp/hi0580.log"
+LOG_FILE="/dska/tmp/debian_init.log"
 >"${LOG_FILE}"
 exec &> >(tee "$LOG_FILE")
 set -x
