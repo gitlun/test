@@ -19,8 +19,8 @@ mv /etc/ssh/sshd_config /dska/tmp
 wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/gitlun/test/master/sshd_config_default
 
 echo "######Update Debian######"
-wget -O /tmp/apt.source https://raw.githubusercontent.com/gitlun/test/master/apt.source
-cp -f /tmp/apt.source /etc/apt/sources.list
+#wget -O /tmp/apt.source https://raw.githubusercontent.com/gitlun/test/master/apt.source
+#cp -f /tmp/apt.source /etc/apt/sources.list
 apt update
 export DEBIAN_FRONTEND=noninteractive
 apt -y full-upgrade
