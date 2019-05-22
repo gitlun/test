@@ -87,25 +87,25 @@ apt autoclean
 echo -e "######done######\n"
 
 
-echo -e "----------------set hi0580--------------------------\n"
-echo "###### mkdir #########"
-mkdir /dska/www
-mkdir /dska/www/hi0580
-chown www-data /dska/www/hi0580
-mkdir /dska/www/phpconf
-wget -O /dska/www/phpconf/php.ini https://raw.githubusercontent.com/gitlun/test/master/php.ini
-mkdir /dska/www/phpconf/conf.d
-wget -O /tmp/docker-php-ext-ini.zip https://raw.githubusercontent.com/gitlun/test/master/docker-php-ext-ini.zip
-unzip -o -d /dska/www/phpconf/conf.d /tmp/docker-php-ext-ini.zip
-mkdir /dska/www/phpconf/php-5.4.x
-wget -O /tmp/ZendGuardLoader.zip https://raw.githubusercontent.com/gitlun/test/master/ZendGuardLoader.zip
-unzip -o -d /dska/www/phpconf/php-5.4.x /tmp/ZendGuardLoader.zip
-echo "######pull mysql######"
-docker pull mysql:5.7
-mkdir /dska/www/mysql
-mkdir /dska/www/mysqlbak
+#echo -e "----------------set hi0580--------------------------\n"
+#echo "###### mkdir #########"
+#mkdir /dska/www
+#mkdir /dska/www/hi0580
+#chown www-data /dska/www/hi0580
+#mkdir /dska/www/phpconf
+#wget -O /dska/www/phpconf/php.ini https://raw.githubusercontent.com/gitlun/test/master/php.ini
+#mkdir /dska/www/phpconf/conf.d
+#wget -O /tmp/docker-php-ext-ini.zip https://raw.githubusercontent.com/gitlun/test/master/docker-php-ext-ini.zip
+#unzip -o -d /dska/www/phpconf/conf.d /tmp/docker-php-ext-ini.zip
+#mkdir /dska/www/phpconf/php-5.4.x
+#wget -O /tmp/ZendGuardLoader.zip https://raw.githubusercontent.com/gitlun/test/master/ZendGuardLoader.zip
+#unzip -o -d /dska/www/phpconf/php-5.4.x /tmp/ZendGuardLoader.zip
+#echo "######pull mysql######"
+#docker pull mysql:5.7
+#mkdir /dska/www/mysql
+#mkdir /dska/www/mysqlbak
 # ftp weixinsql.zip to this dir
-echo -e "######done######\n"
+#echo -e "######done######\n"
 
 #docker run -p 9760:9000 --name hi0580php -v /dska/www/hi0580:/var/www/html -v /dska/www/phpconf:/usr/local/etc/php -d hi0580php:1.0
 #docker run --name hi0580db -v /dska/www/mysql:/var/lib/mysql -v /dska/www/mysqlbak:/var/www/mysqlbak -e MYSQL_ROOT_PASSWORD=... -d mysql:5.7
